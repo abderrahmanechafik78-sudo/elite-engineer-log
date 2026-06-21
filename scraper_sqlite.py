@@ -3,13 +3,17 @@ scraper_sqlite.py
 Scrapes quotes from https://quotes.toscrape.com and saves them to a SQLite database.
 """
 
+import json
 import sqlite3
 import requests
 from bs4 import BeautifulSoup
 
-URL = "https://quotes.toscrape.com"
-DB_FILE = "quotes.db"
-HEADERS = {"User-Agent": "Mozilla/5.0 (educational scraping practice)"}
+with open("config.json") as f:
+    config = json.load(f)
+
+URL = config["target_url"]
+DB_FILE = config["output_db"]
+HEADERS = {"User-Agent": config["user_agent"]}
 
 
 def fetch_page(url):

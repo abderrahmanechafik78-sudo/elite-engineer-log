@@ -1,0 +1,5 @@
+{
+    "target_url": "https://quotes.toscrape.com",
+    "output_db": "quotes.db",
+    "user_agent": "Mozilla/5.0 (educational scraping practice)"
+}
